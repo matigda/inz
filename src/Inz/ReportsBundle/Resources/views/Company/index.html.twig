@@ -1,43 +1,47 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>{{ 'company.list'|trans }}</h1>
-    <table class="records_list table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>{% trans %}company.name{%endtrans%}</th>
-                <th>{% trans %}company.regon{%endtrans%}</th>
-                <th>{% trans %}company.vatid{%endtrans%}</th>
-                <th>{% trans %}action.action{%endtrans%}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('company_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td><a href="{{ path('company_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
-                <td><a href="{{ path('company_show', { 'id': entity.id }) }}">{{ entity.regon }}</a></td>
-                <td><a href="{{ path('company_show', { 'id': entity.id }) }}">{{ entity.vatid }}</a></td>
-                <td>
-                <ul>
-                    <li class="btn btn-default" style="width:130px;">
-                        <a href="{{ path('car_new', { 'company_id': entity.id }) }}">{% trans %}car.add{%endtrans%}</a>
-                    </li>
-                    <br />
-                    <li class="btn btn-default" style="width:130px;">
-                        <a href="{{ path('cauldron_new', { 'company_id': entity.id }) }}">{% trans %}cauldron.add{%endtrans%}</a>
-                    </li>
-                    <br />
-                    <li class="btn btn-default" style="width:130px;">
-                        <a href="{{ path('report', { 'company_id': entity.id }) }}">{% trans %}report.generate{%endtrans%}</a>
-                    </li> 
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% if entities|length > 0 %}
+        <h1>{{ 'company.list'|trans }}</h1>
+        <table class="records_list table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>{% trans %}company.name{%endtrans%}</th>
+                    <th>{% trans %}company.regon{%endtrans%}</th>
+                    <th>{% trans %}company.vatid{%endtrans%}</th>
+                    <th>{% trans %}action.action{%endtrans%}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('company_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td><a href="{{ path('company_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                    <td><a href="{{ path('company_show', { 'id': entity.id }) }}">{{ entity.regon }}</a></td>
+                    <td><a href="{{ path('company_show', { 'id': entity.id }) }}">{{ entity.vatid }}</a></td>
+                    <td>
+                    <ul>
+                        <li class="btn btn-default" style="width:130px;">
+                            <a href="{{ path('car_new', { 'company_id': entity.id }) }}">{% trans %}car.add{%endtrans%}</a>
+                        </li>
+                        <br />
+                        <li class="btn btn-default" style="width:130px;">
+                            <a href="{{ path('cauldron_new', { 'company_id': entity.id }) }}">{% trans %}cauldron.add{%endtrans%}</a>
+                        </li>
+                        <br />
+                        <li class="btn btn-default" style="width:130px;">
+                            <a href="{{ path('report', { 'company_id': entity.id }) }}">{% trans %}report.generate{%endtrans%}</a>
+                        </li>
+                    </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>{% trans %}company.empty_message{%endtrans%}</h3>
+    {% endif %}
 
         <ul>
         <li class="btn btn-default">

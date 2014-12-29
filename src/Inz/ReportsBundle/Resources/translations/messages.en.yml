@@ -9,6 +9,7 @@ company:
    delete: Delete company
    plural: Companies
    info: Company info
+   empty_message: In order to generate report You have to add company first
         
 car:
     engineType: Engine type
@@ -46,4 +47,7 @@ report:
 cauldron:
     add: Add cauldron
     plural: Cauldrons
+    new: Create new cauldron
+    type: Type
+    unitCost: Unit cost
     

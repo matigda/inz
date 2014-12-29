@@ -6,9 +6,9 @@
     {{ form(edit_form) }}
 
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('cauldron') }}">
-            Back to the list
+    <li class="btn btn-default">
+        <a href="{{ path('company_show', { 'id' : app.request.get('company_id')}) }}">
+            {% trans %}action.back_to_list{%endtrans%}
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

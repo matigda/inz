@@ -37,7 +37,7 @@ class Cauldron
     private $company;
 
     /**
-     * @ORM\OneToMany(targetEntity="CauldronTank", mappedBy="cauldron")
+     * @ORM\OneToMany(targetEntity="CauldronTank", mappedBy="cauldron", cascade={"ALL"})
      */
     private $fuel;
 

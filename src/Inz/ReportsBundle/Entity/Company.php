@@ -54,12 +54,12 @@ class Company
     private $vatid;
 
     /**
-     * @ORM\OneToMany(targetEntity="Car", mappedBy="company")
+     * @ORM\OneToMany(targetEntity="Car", mappedBy="company", cascade={"ALL"})
      */
     private $cars;
 
     /**
-     * @ORM\OneToMany(targetEntity="Cauldron", mappedBy="company")
+     * @ORM\OneToMany(targetEntity="Cauldron", mappedBy="company", cascade={"ALL"})
      */
     private $cauldrons;
 

@@ -1,6 +1,6 @@
-cauldron:
-    path:     /
-    defaults: { _controller: "InzReportsBundle:Cauldron:index" }
+#cauldron:
+#    path:     /
+#    defaults: { _controller: "InzReportsBundle:Cauldron:index" }
 
 cauldron_show:
     path:     /{id}/show

@@ -1,6 +1,8 @@
 {% extends "::base.html.twig" %}
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {#nadpisujemy blok javaskryptów bo sie sypał wkhtmltopdf#}
+        {% endblock %}
 
 {% block report %} Wprowadzanie gazów lub pyłów do powietrza z kotłów o nominalnej mocy cieplnej
     do 5 MW opalanych węglem kamiennym, koksem, drewnem, olejem lub paliwem gazowym, dla których nie jest

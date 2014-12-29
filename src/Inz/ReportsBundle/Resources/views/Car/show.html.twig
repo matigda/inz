@@ -11,12 +11,12 @@
             </tr>
             
             <tr>
-                <th>Marka</th>
+                <th>{% trans %}car.brand{%endtrans%}</th>
                 <td>{{ entity.brand }}</td>
             </tr>
             
             <tr>
-                <th>Rodzaj paliwa</th>
+                <th>{% trans %}car.fuelType{%endtrans%}</th>
                 <td>{{ entity.unitCost.fuelType }}</td>
             </tr>
             <tr>
@@ -34,13 +34,13 @@
 
         <ul class="record_actions">
     <li class="btn btn-default">
-        <a href="{{ path('car',{ 'company_id': app.request.get('company_id')}) }}">
-            Back to the list
+        <a href="{{ path('company_show',{ 'id': app.request.get('company_id')}) }}">
+            {% trans %}action.back_to_list{%endtrans%}
         </a>
     </li>
     <li class="btn btn-default">
         <a href="{{ path('car_edit', { 'id': entity.id, 'company_id': app.request.get('company_id') }) }}">
-            Edit
+            {% trans %}action.edit{%endtrans%}
         </a>
     </li>
     {{ form(delete_form) }}

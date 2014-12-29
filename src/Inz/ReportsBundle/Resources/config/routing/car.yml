@@ -1,6 +1,6 @@
-car:
-    path:     /
-    defaults: { _controller: "InzReportsBundle:Car:index" }
+#car:
+#    path:     /
+#    defaults: { _controller: "InzReportsBundle:Car:index" }
 
 car_show:
     path:     /{id}/show

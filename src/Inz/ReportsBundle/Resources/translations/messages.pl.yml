@@ -10,6 +10,7 @@ company:
    delete: Skasuj firmę
    plural: Firmy
    info: Informacje o firmie
+   empty_message: Aby wygenerować raport, najpierw dodaj firmę
         
 car:
     engineType: Rodzaj silnika
@@ -47,3 +48,6 @@ report:
 cauldron:
     add: Dodaj kocioł
     plural: Kotły
+    new: Stwórz nowy kocioł
+    type: Typ
+    unitCost: Koszt jednostkowy

@@ -31,6 +31,7 @@
 
     <hr>
 
+    {% if entity.cars|length > 0 %}
     <h2>{% trans %}car.plural{%endtrans%}</h2>
 
     <table class="record_properties table">
@@ -44,9 +45,9 @@
 
         {% for car in entity.cars %}
             <tr>
-                <td>{{ car.id }}</td>
-                <td>{{ car.brand }}</td>
-                <td>{{ car.unitCost.fuelType }}</td>
+                <td><a href="{{ path('car_show', { 'id': car.id, 'company_id': entity.id }) }}">{{ car.id }}</a></td>
+                <td><a href="{{ path('car_show', { 'id': car.id, 'company_id': entity.id }) }}">{{ car.brand }}</a></td>
+                <td><a href="{{ path('car_show', { 'id': car.id, 'company_id': entity.id }) }}">{{ car.unitCost.fuelType }}</a></td>
                 <td>
                     <li class="btn btn-default" style="width:90px;"><a href="{{ path('car_edit', { 'id': car.id, 'company_id': entity.id }) }}">{% trans %}action.edit{%endtrans%}</a></li>
                     <li class="btn btn-default" style="width:90px;"><a href="{{ path('car_refuel', { 'id': car.id, 'company_id': entity.id }) }}">{% trans %}action.tank{%endtrans%}</a></li>
@@ -57,7 +58,9 @@
     </table>
 
     <hr>
+    {% endif %}
 
+    {% if entity.cauldrons|length > 0 %}
     <h2>{% trans %}cauldron.plural{%endtrans%}</h2>
 
     <table class="record_properties table">
@@ -71,9 +74,9 @@
 
         {% for cauldron in entity.cauldrons %}
             <tr>
-                <td>{{ cauldron.id }}</td>
-                <td>{{ cauldron.name }}</td>
-                <td>{{ cauldron.cauldronType }}</td>
+                <td><a href="{{ path('cauldron_show', { 'id': cauldron.id, 'company_id': entity.id }) }}">{{ cauldron.id }}</a></td>
+                <td><a href="{{ path('cauldron_show', { 'id': cauldron.id, 'company_id': entity.id }) }}">{{ cauldron.name }}</a></td>
+                <td><a href="{{ path('cauldron_show', { 'id': cauldron.id, 'company_id': entity.id }) }}">{{ cauldron.cauldronType }}</a></td>
                 <td>
                     <li class="btn btn-default" style="width:90px;"><a href="{{ path('cauldron_edit', { 'id': cauldron.id, 'company_id': entity.id }) }}">{% trans %}action.edit{%endtrans%}</a></li>
                     <li class="btn btn-default" style="width:90px;"><a href="{{ path('cauldron_tank', { 'id': cauldron.id, 'company_id': entity.id }) }}">{% trans %}action.tank{%endtrans%}</a></li>
@@ -82,15 +85,14 @@
         {% endfor %}
         </tbody>
     </table>
+    {% endif %}
+
                 <ul>
-                    <li class="btn btn-default" style="width:120px;">
+                    <li class="btn btn-default" style="width:140px;">
                         <a href="{{ path('car_new', { 'company_id': entity.id }) }}">{% trans %}car.add{%endtrans%}</a>
                     </li>
                     <li class="btn btn-default" style="width:120px;">
                         <a href="{{ path('cauldron_new', { 'company_id': entity.id }) }}">{% trans %}cauldron.add{%endtrans%}</a>
-                    </li>
-                    <li class="btn btn-default" style="width:120px;">
-                        <a href="{{ path('car', { 'company_id': entity.id }) }}">{% trans %}car.show_all{%endtrans%}</a>
                     </li>
                     <li  class="btn btn-default" style="width:120px;">
                         <a href="{{ path('company') }}">

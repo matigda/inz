@@ -6,11 +6,11 @@
     {{ form(edit_form) }}
 
         <ul class="record_actions">
-    <li>
+    <li class="btn btn-default">
         <a href="{{ path('company') }}">
             {% trans %}action.back_to_list{%endtrans%}
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    {{ form(delete_form) }}
 </ul>
 {% endblock %}

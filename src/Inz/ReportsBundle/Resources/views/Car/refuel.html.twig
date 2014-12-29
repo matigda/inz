@@ -16,8 +16,8 @@
     {{ form(form) }}
 
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('car', { 'company_id' : app.request.get('company_id')}) }}">
+    <li class="btn btn-default">
+        <a href="{{ path('company_show', { 'id' : app.request.get('company_id')}) }}">
             Back to the list
         </a>
     </li>

@@ -33,7 +33,7 @@ class ReportController extends Controller
                 200,
                 array(
                     'Content-Type'          => 'application/pdf',
-                    'Content-Disposition'   => 'attachment; filename="file.pdf"'
+                    'Content-Disposition'   => 'attachment; filename="raport.pdf"'
                 )
             );
         }

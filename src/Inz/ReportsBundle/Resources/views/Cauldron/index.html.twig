@@ -3,7 +3,7 @@
 {% block body -%}
     <h1>Cauldron list</h1>
 
-    <table class="records_list">
+    <table class="record_properties table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -20,10 +20,10 @@
                 <td>{{ entity.cauldronType }}</td>
                 <td>
                 <ul>
-                    <li>
+                    <li class="btn btn-default" style="width:90px;">
                         <a href="{{ path('cauldron_show', { 'id': entity.id, 'company_id' : app.request.get('company_id') }) }}">show</a>
                     </li>
-                    <li>
+                    <li class="btn btn-default" style="width:90px;">
                         <a href="{{ path('cauldron_edit', { 'id': entity.id, 'company_id' : app.request.get('company_id') }) }}">edit</a>
                     </li>
                 </ul>
@@ -33,10 +33,15 @@
         </tbody>
     </table>
 
-        <ul>
-        <li>
+    <ul>
+        <li class="btn btn-default" >
             <a href="{{ path('cauldron_new', { 'company_id' : app.request.get('company_id')}) }}">
-                Create a new entry
+                {% trans %}cauldron.new{%endtrans%}
+            </a>
+        </li>
+        <li  class="btn btn-default" style="width:120px;">
+            <a href="{{ path('company_show', { 'id' : app.request.get('company_id')}) }}">
+                {% trans %}action.back_to_list{%endtrans%}
             </a>
         </li>
     </ul>
