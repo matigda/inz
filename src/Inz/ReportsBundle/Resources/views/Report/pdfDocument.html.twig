@@ -1,26 +1,53 @@
 {% extends "::base.html.twig" %}
 
-{% block body -%}
 
-<table class="table table-bordered">
-    <th>Rodzaj silnika</th>
-    <th>Rodzaj paliwa</th>
-    <th>Zużycie paliwa [Mg]</th>
-    <th>Jednostkowa stawka opłaty [zł/Mg]</th>
-    <th>Wysokość opłaty [zł]</th>
+{% block report %} Wprowadzanie gazów lub pyłów do powietrza z kotłów o nominalnej mocy cieplnej
+    do 5 MW opalanych węglem kamiennym, koksem, drewnem, olejem lub paliwem gazowym, dla których nie jest
+    wymagane pozwolenie na wprowadzanie gazów lub pyłów do powietrza albo pozwolenie zintegrowane <br/><br/> {% endblock %}
 
-    {% for key, array in result['carReport'] %}
+{% block body %}
 
-    <tr>
-        <td rowspan="{{ array|length }}">{{  key }}</td>
-        {% for data in array %}
-            <td >{{  data.fuelType }}</td>
-            <td >{{  data.massSum/1000 }}</td>
-            <td >{{  data.unitCost }}</td>
-            <td >{{  data.totalCost|number_format(2, '.', ',') }}</td>
-        </tr>
+    <table class="table table-bordered">
+        <th>Rodzaje kotłów</th>
+        <th>Liczba kotłów</th>
+        <th>Zużycie paliwa [Mg lub m^3]</th>
+        <th>Jednostkowa stawka opłaty [zł/Mg lub zł/10^6m^3]</th>
+        <th>Wysokość opłaty [zł]</th>
+
+        {% for data in result['cauldronReport'] %}
+            <tr>
+                <td>{{ data.type }}</td>
+                <td>{{ data.cauldronsAmount }}</td>
+                <td>{{ data.massSum }}</td>
+                <td>{{ data.unitCost }}</td>
+                <td >{{  data.totalCost|number_format(2, '.', ',') }}</td>
+            </tr>
         {% endfor %}
-    </tr>
+    </table>
+
+
+
+    Wprowadzanie gazów lub pyłów do powietrza z procesów spalania paliw w silnikach spalinowych <br/><br/>
+
+    <table class="table table-bordered">
+        <th>Rodzaj silnika</th>
+        <th>Rodzaj paliwa</th>
+        <th>Zużycie paliwa [Mg]</th>
+        <th>Jednostkowa stawka opłaty [zł/Mg]</th>
+        <th>Wysokość opłaty [zł]</th>
+
+        {% for key, array in result['carReport'] %}
+
+        <tr>
+            <td rowspan="{{ array|length }}">{{  key }}</td>
+            {% for data in array %}
+                <td >{{  data.fuelType }}</td>
+                <td >{{  data.massSum/1000 }}</td>
+                <td >{{  data.unitCost }}</td>
+                <td >{{  data.totalCost|number_format(2, '.', ',') }}</td>
+            </tr>
+            {% endfor %}
+        </tr>
 
 
     {% endfor %}

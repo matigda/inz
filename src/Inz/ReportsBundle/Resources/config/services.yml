@@ -12,3 +12,9 @@ services:
     reporter_service:
         class: Inz\ReportsBundle\Service\ReporterService
         arguments: [ @doctrine.orm.entity_manager ]
+
+    inz_reports.language.kernel_request_listener:
+            class: Inz\ReportsBundle\EventListener\LanguageListener
+            arguments: ["%kernel.default_locale%"]
+            tags:
+                - { name: kernel.event_subscriber }

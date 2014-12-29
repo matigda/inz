@@ -51,17 +51,22 @@ class CompanyRepository extends EntityRepository
         $qb = $this->getEntityManager()->createQueryBuilder();
 
         return $qb->select('
-                cauldronType.unitCost, cauldronType.type,
-                SUM(fuel.volume) as massSum
+                cauldronType.unitCost, cauldronType.type, COUNT(cauldrons.id) as cauldronsAmount,
+                 SUM(case
+                        WHEN fuel.unit = :kg AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN fuel.volume
+                        WHEN fuel.unit = :l AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN (fuel.volume * cauldronType.fuelDensity)
+                        ELSE 0
+                        END
+                ) as massSum
             ')
-            ->from('InzReportsBundle:Company', 'company')
-            ->join('company.cauldrons','cauldrons')
-            ->join('cauldrons.cauldronType','cauldronType')
-            ->join('cauldrons.fuel','fuel')
+            ->from('InzReportsBundle:CauldronType','cauldronType')
+            ->leftJoin('cauldronType.cauldrons','cauldrons')
+            ->leftJoin('cauldrons.company', 'company')
+            ->leftJoin('cauldrons.fuel','fuel')
             ->groupBy('cauldronType.type')
             ->orderBy('cauldronType.id')
-            ->where('company.id = :cid')
-            ->andWhere('YEAR(fuel.tankingDate) = :year')
+            ->setParameter(':kg', 'kg')
+            ->setParameter(':l', 'l')
             ->setParameter(':cid', $companyId)
             ->setParameter(':year', $year)
             ->getQuery()

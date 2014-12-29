@@ -40,6 +40,13 @@ class CauldronTank
      */
     private $cauldron;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unit", type="string", length=255)
+     */
+    private $unit;
+
 
     /**
      * Get id
@@ -118,5 +125,28 @@ class CauldronTank
     public function getCauldron()
     {
         return $this->cauldron;
+    }
+
+    /**
+     * Set unit
+     *
+     * @param string $unit
+     * @return CauldronTank
+     */
+    public function setUnit($unit)
+    {
+        $this->unit = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Get unit
+     *
+     * @return string 
+     */
+    public function getUnit()
+    {
+        return $this->unit;
     }
 }

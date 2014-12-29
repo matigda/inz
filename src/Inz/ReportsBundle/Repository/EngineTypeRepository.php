@@ -11,7 +11,7 @@ class EngineTypeRepository extends EntityRepository
     {
          return $this->getEntityManager()
             ->createQuery(
-                'SELECT et FROM InzReportsBundle:EngineType et
+                'SELECT et.id, et.name FROM InzReportsBundle:EngineType et
                 JOIN et.unitCost uc
                 WHERE uc.fuelType = :fuelTypeId'
             )

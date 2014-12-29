@@ -22,6 +22,9 @@ class CauldronTankType extends AbstractType
     {
         $builder
             ->add('volume')
+            ->add('unit', 'choice', array(
+                'choices' => array( 'l' => 'litry', 'kg' => 'kilogramy' )
+            ))
             ->add('tankingDate')
 
             ->addEventListener(FormEvents::POST_SUBMIT, function(FormEvent $event) {

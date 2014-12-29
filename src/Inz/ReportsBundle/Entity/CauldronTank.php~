@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CauldronTank
  *
- * @ORM\Table()
+ * @ORM\Table(name="cauldron_tank")
  * @ORM\Entity
  */
 class CauldronTank
@@ -39,6 +39,13 @@ class CauldronTank
      * @ORM\ManyToOne(targetEntity="Cauldron")
      */
     private $cauldron;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unit", type="string", length=255)
+     */
+    private $unit;
 
 
     /**

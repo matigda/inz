@@ -31,6 +31,16 @@ class CauldronType
      */
     private $unitCost;
 
+    /**
+     * @ORM\Column(type="float", precision=3)
+     */
+    private $fuelDensity;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Cauldron", mappedBy="cauldronType")
+     */
+    private $cauldrons;
+
 
     /**
      * Get id
@@ -91,5 +101,45 @@ class CauldronType
     public function __toString()
     {
         return $this->type;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cauldrons = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add cauldron
+     *
+     * @param \Inz\ReportsBundle\Entity\Cauldron $cauldron
+     * @return CauldronType
+     */
+    public function addCauldron(\Inz\ReportsBundle\Entity\Cauldron $cauldron)
+    {
+        $this->cauldrons[] = $cauldron;
+
+        return $this;
+    }
+
+    /**
+     * Remove cauldron
+     *
+     * @param \Inz\ReportsBundle\Entity\Cauldron $cauldron
+     */
+    public function removeCauldron(\Inz\ReportsBundle\Entity\Cauldron $cauldron)
+    {
+        $this->cauldrons->removeElement($cauldron);
+    }
+
+    /**
+     * Get cauldron
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCauldrons()
+    {
+        return $this->cauldrosn;
     }
 }

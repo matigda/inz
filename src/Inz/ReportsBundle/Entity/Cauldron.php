@@ -27,7 +27,7 @@ class Cauldron
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CauldronType")
+     * @ORM\ManyToOne(targetEntity="CauldronType", inversedBy="cauldrons")
      */
     private $cauldronType;
 

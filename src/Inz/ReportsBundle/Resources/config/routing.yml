@@ -18,3 +18,9 @@ inz_redirect:
     path: /
     defaults: { _controller: InzReportsBundle:Default:redirect }
 
+switch_language:
+    pattern:  /switch_language/{lang}
+    defaults: { _controller: InzReportsBundle:Language:changeLanguage }
+    requirements:
+        _locale: en|pl
+

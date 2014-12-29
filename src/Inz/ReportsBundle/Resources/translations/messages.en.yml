@@ -37,7 +37,12 @@ action:
     show: Show
     back_to_list: Back to the list
     tank: Tank
+    logout: Logout
     
 report:
     generate: Generate report
+
+cauldron:
+    add: Add cauldron
+    plural: Cauldrons
     

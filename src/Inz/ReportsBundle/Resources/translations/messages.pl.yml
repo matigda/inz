@@ -38,6 +38,11 @@ action:
     show: Pokaż
     back_to_list: Wróć do listy
     tank: Tankuj
+    logout: Wyloguj
     
 report:
     generate: Wygeneruj raport
+
+cauldron:
+    add: Dodaj kocioł
+    plural: Kotły
