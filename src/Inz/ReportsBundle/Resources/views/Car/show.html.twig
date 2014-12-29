@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Car</h1>
+
+    <table class="record_properties table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            
+            <tr>
+                <th>Marka</th>
+                <td>{{ entity.brand }}</td>
+            </tr>
+            
+            <tr>
+                <th>Rodzaj paliwa</th>
+                <td>{{ entity.unitCost.fuelType }}</td>
+            </tr>
+            <tr>
+                <th>Spalone paliwo</th>
+                <td>
+                    <ul>
+                        {% for fuel in entity.fuel %}
+                            <li>{{ fuel.volume }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li class="btn btn-default">
+        <a href="{{ path('car',{ 'company_id': app.request.get('company_id')}) }}">
+            Back to the list
+        </a>
+    </li>
+    <li class="btn btn-default">
+        <a href="{{ path('car_edit', { 'id': entity.id, 'company_id': app.request.get('company_id') }) }}">
+            Edit
+        </a>
+    </li>
+    {{ form(delete_form) }}
+</ul>
+{% endblock %}

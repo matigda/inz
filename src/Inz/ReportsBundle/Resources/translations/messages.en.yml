@@ -1,0 +1,43 @@
+company:
+   name: Company name
+   adress: Adress
+   vatid: NIP
+   regon: Regon
+   list: Company list
+   edit: Edit your company
+   create: Create new company
+   delete: Delete company
+   plural: Companies
+   info: Company info
+        
+car:
+    engineType: Engine type
+    fuelType: Fuel type
+    brand: Car brand
+    add: Add new car
+    show_all: Show all cars
+    plural: Cars
+    add_new: Add new car
+
+fuel:
+    volume: Volume
+    tankingDate: Tanking date
+    tank: Add fuel
+
+security:
+    login:
+        password: Password
+        username: Username
+        remember_me: Remember me
+        submit: Log in
+
+action:
+    action: Action
+    edit: Edit
+    show: Show
+    back_to_list: Back to the list
+    tank: Tank
+    
+report:
+    generate: Generate report
+    

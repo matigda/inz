@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme form _self %}
+{% block date_widget %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{ block('field_widget') }}
+    {% else %}
+        <div {{ block('widget_container_attributes') }}>
+            {{ date_pattern|replace({
+                '{{ year }}':  form_widget(form.year),
+                '{{ month }}': '',
+                '{{ day }}': '',
+            })|raw }}
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock date_widget %}
+
+{% block body -%}
+    <h1>Car creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('car', { 'company_id' : app.request.get('company_id')}) }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script>
+        getSelectValues();
+        
+        $('#inz_reportsbundle_car_fuelType').on('change', function() {
+            $('#inz_reportsbundle_car_engineType').find('option').remove().end();
+            getSelectValues();
+        });
+        
+        function getSelectValues()
+        {
+            $.ajax({ // instead of writing the function to execute the request we use Select2's convenient helper
+                url: Routing.generate('car_get_engine_type', { company_id : "{{ app.request.get('company_id') }}", fuelTypeId : $('#inz_reportsbundle_car_fuelType').val() }),
+                dataType: 'json'
+            })
+            .done(function (data) {
+                $.each(data, function(index, engineType) {
+                    $('#inz_reportsbundle_car_engineType').append($('<option>', {
+                        value: engineType.id,
+                        text: engineType.name
+                    }));
+                });
+            });
+        }
+    </script>
+{% endblock %}

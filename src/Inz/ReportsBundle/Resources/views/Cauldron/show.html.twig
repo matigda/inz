@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Cauldron</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Unitcost</th>
+                <td>{{ entity.cauldronType }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('cauldron',{ 'company_id': app.request.get('company_id')}) }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('cauldron_edit', { 'id': entity.id, 'company_id': app.request.get('company_id') }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

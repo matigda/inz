@@ -1,0 +1,101 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>{% trans %}company.info{%endtrans%}</h1>
+
+    <table class="record_properties table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>{% trans %}company.name{%endtrans%}</th>
+                <th>{% trans %}company.regon{%endtrans%}</th>
+                <th>{% trans %}company.vatid{%endtrans%}</th>
+                <th>{% trans %}action.action{%endtrans%}</th>
+            </tr>
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.regon }}</td>
+                <td>{{ entity.vatid }}</td>
+                <td>
+                    
+                    <li class="btn btn-default" style="width:130px;">
+                        <a href="{{ path('car_new', { 'company_id': entity.id }) }}">{% trans %}report.generate{%endtrans%}</a>
+                    </li> <br />
+                    <li class="btn btn-default" style="width:130px;"><a href="{{ path('company_edit', { 'id': entity.id }) }}">{% trans %}action.edit{%endtrans%}</a></li>
+                    {{ form(delete_form) }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>{% trans %}car.plural{%endtrans%}</h2>
+
+    <table class="record_properties table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <th>{% trans %}car.brand{%endtrans%}</th>
+            <th>{% trans %}car.fuelType{%endtrans%}</th>
+            <th>{% trans %}action.action{%endtrans%}</th>
+        </tr>
+
+        {% for car in entity.cars %}
+            <tr>
+                <td>{{ car.id }}</td>
+                <td>{{ car.brand }}</td>
+                <td>{{ car.unitCost.fuelType }}</td>
+                <td>
+                    <li class="btn btn-default" style="width:90px;"><a href="{{ path('car_edit', { 'id': car.id, 'company_id': entity.id }) }}">{% trans %}action.edit{%endtrans%}</a></li>
+                    <li class="btn btn-default" style="width:90px;"><a href="{{ path('car_refuel', { 'id': car.id, 'company_id': entity.id }) }}">{% trans %}action.tank{%endtrans%}</a></li>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>{% trans %}cauldron.plural{%endtrans%}</h2>
+
+    <table class="record_properties table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <th>{% trans %}cauldron.name{%endtrans%}</th>
+            <th>{% trans %}cauldron.type{%endtrans%}</th>
+            <th>{% trans %}action.action{%endtrans%}</th>
+        </tr>
+
+        {% for cauldron in entity.cauldrons %}
+            <tr>
+                <td>{{ cauldron.id }}</td>
+                <td>{{ cauldron.name }}</td>
+                <td>{{ cauldron.cauldronType }}</td>
+                <td>
+                    <li class="btn btn-default" style="width:90px;"><a href="{{ path('cauldron_edit', { 'id': cauldron.id, 'company_id': entity.id }) }}">{% trans %}action.edit{%endtrans%}</a></li>
+                    <li class="btn btn-default" style="width:90px;"><a href="{{ path('cauldron_tank', { 'id': cauldron.id, 'company_id': entity.id }) }}">{% trans %}action.tank{%endtrans%}</a></li>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+                <ul>
+                    <li class="btn btn-default" style="width:120px;">
+                        <a href="{{ path('car_new', { 'company_id': entity.id }) }}">{% trans %}car.add{%endtrans%}</a>
+                    </li>
+                    <li class="btn btn-default" style="width:120px;">
+                        <a href="{{ path('cauldron_new', { 'company_id': entity.id }) }}">{% trans %}cauldron.add{%endtrans%}</a>
+                    </li>
+                    <li class="btn btn-default" style="width:120px;">
+                        <a href="{{ path('car', { 'company_id': entity.id }) }}">{% trans %}car.show_all{%endtrans%}</a>
+                    </li>
+                    <li  class="btn btn-default" style="width:120px;">
+                        <a href="{{ path('company') }}">
+                            {% trans %}action.back_to_list{%endtrans%}
+                        </a>
+                    </li>
+                </ul>
+{% endblock %}

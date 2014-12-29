@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<skipper version="3.0.0.1104" name="Inz" mvc="Symfony2" orm="Doctrine2" uuid="c0184abf-9c71-45bc-ae6a-a8c8fb83bcb7">
+  <module name="Inz\ReportsBundle\Entity" import-format="Doctrine2Php" import-path="src/Inz/ReportsBundle/Entity" uuid="f713257f-6482-4ddb-aaf3-b1d446aec639">
+    <entity name="Car" uuid="9e517e8b-efe7-4ded-b2ce-9f33521db4d3">
+      <field name="id" type="integer" required="true" primary="true" uuid="701db3c2-15bb-4b40-bc5e-299d98732fe0">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="brand" type="string" size="255" uuid="6e526c24-f454-4078-8600-f506ed073713"/>
+      <field name="company_id" uuid="6ac6875a-50a9-41ec-9b87-fcbed5fa4a08"/>
+      <field name="unitCost_id" uuid="c8e16908-743a-48b0-b04f-fb6cd22a52f0"/>
+      <orm-attributes>
+        <attribute name="repository-class">Inz\ReportsBundle\Repository\CarRepository</attribute>
+        <attribute name="table">car</attribute>
+        <attribute name="export-file-name">Car.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="Car" to="Company" owner-alias="cars" inverse-alias="company" uuid="b18e8c4d-83b3-4046-aad7-cf0eac363653">
+      <association-field from="company_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <association from="Car" to="UnitCost" owner-alias="" inverse-alias="unitCost" uuid="cf977160-5c76-4cfa-ae22-3d3288527c0d">
+      <association-field from="unitCost_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="Company" uuid="bbc0ceaa-239f-4a86-bc72-cc9dd5d82a88">
+      <field name="id" type="integer" required="true" primary="true" uuid="1f7e4ea0-aeb7-4556-94f9-7f154af243a6">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="name" type="string" size="255" uuid="05f36cb9-a19d-4e3e-8732-b1bb81e7ea4e">
+        <orm-attributes>
+          <attribute name="column">name</attribute>
+        </orm-attributes>
+      </field>
+      <field name="adress" type="string" size="255" uuid="759b10ce-d68e-4b7f-8175-8cef8d39dceb"/>
+      <field name="regon" type="string" size="255" uuid="28d1e937-8194-4d05-b785-e3b70d04b778">
+        <orm-attributes>
+          <attribute name="column">regon</attribute>
+        </orm-attributes>
+      </field>
+      <field name="vatid" type="string" size="255" uuid="c96638b3-a09d-465a-90a2-04d1095e4989">
+        <orm-attributes>
+          <attribute name="column">vatid</attribute>
+        </orm-attributes>
+      </field>
+      <field name="user_id" uuid="7a9aeddd-c3a1-49e0-b0a7-d551dad8cf65"/>
+      <orm-attributes>
+        <attribute name="repository-class">Inz\ReportsBundle\Repository\CompanyRepository</attribute>
+        <attribute name="table">company</attribute>
+        <attribute name="export-file-name">Company.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="Company" to="User" owner-alias="" inverse-alias="user" uuid="97fd6130-f9eb-4865-b3dd-25fe88454a6f">
+      <association-field from="user_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="EngineType" uuid="474c8387-0a8e-4c03-9831-21c13dcb8f49">
+      <field name="id" type="integer" required="true" primary="true" uuid="069d0776-f1b6-4619-9a33-80f601b8a109">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="name" type="string" size="255" uuid="c1daa551-3f3b-4072-ad3f-b0867b18bf8b">
+        <orm-attributes>
+          <attribute name="column">name</attribute>
+        </orm-attributes>
+      </field>
+      <orm-attributes>
+        <attribute name="repository-class">Inz\ReportsBundle\Repository\EngineTypeRepository</attribute>
+        <attribute name="export-file-name">EngineType.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="FuelTank" uuid="3400e02e-8ef5-4e93-9f8f-248a976dcfd0">
+      <field name="id" type="integer" required="true" primary="true" uuid="24912887-dfc1-4ec1-9db3-40493074d921">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="volume" type="string" size="255" uuid="a4e6bb4c-1748-4223-8aae-449a288c49c4">
+        <orm-attributes>
+          <attribute name="column">volume</attribute>
+        </orm-attributes>
+      </field>
+      <field name="tankingDate" type="datetime" uuid="dac220e8-4255-45c8-8ae0-a14533e092b3">
+        <orm-attributes>
+          <attribute name="column">tankingDate</attribute>
+        </orm-attributes>
+      </field>
+      <field name="car_id" uuid="4bf663ad-b7cd-4b20-9a1e-133e98d46d54"/>
+      <orm-attributes>
+        <attribute name="export-file-name">FuelTank.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="FuelTank" to="Car" owner-alias="fuel" inverse-alias="car" uuid="c8b10f9b-a78e-4acb-91e9-717b7cede5ff">
+      <association-field from="car_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="FuelType" uuid="3417c02f-6e2b-40aa-869b-6e1dc0e2d987">
+      <field name="id" type="integer" required="true" primary="true" uuid="b943d95b-0308-4db6-859d-de36ccdec32e">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="name" type="string" size="255" uuid="e0b1cc87-4736-4a72-bf6b-9affcaf7ca85">
+        <orm-attributes>
+          <attribute name="column">name</attribute>
+        </orm-attributes>
+      </field>
+      <orm-attributes>
+        <attribute name="export-file-name">FuelType.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="UnitCost" uuid="f90d38e2-a6ce-4bdf-8400-868ad5559a6a">
+      <field name="id" type="integer" required="true" primary="true" uuid="57350ac8-c936-4a53-bedc-9309a35f817e">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="cost" type="string" size="255" uuid="c1fbe91b-e70b-4bc3-bed5-4824a2837795">
+        <orm-attributes>
+          <attribute name="column">cost</attribute>
+        </orm-attributes>
+      </field>
+      <field name="engineType_id" uuid="ca93de32-04b6-4718-8367-2bcd260d29bf"/>
+      <field name="fuelType_id" uuid="4433fdbb-5a0b-4acd-be1f-ffa0b1a42afb"/>
+      <orm-attributes>
+        <attribute name="repository-class">Inz\ReportsBundle\Repository\UnitCostRepository</attribute>
+        <attribute name="export-file-name">UnitCost.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="UnitCost" to="EngineType" owner-alias="unitCost" inverse-alias="engineType" uuid="b7876e3b-3a99-4787-8f46-2300fa2d660e">
+      <association-field from="engineType_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="persist">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <association from="UnitCost" to="FuelType" owner-alias="unitCost" inverse-alias="fuelType" uuid="6e10160e-4cd1-4117-ba61-a1233bdfd605">
+      <association-field from="fuelType_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="persist">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="User" uuid="775521b2-31ef-412b-99f4-2629c1668904">
+      <field name="id" type="integer" required="true" primary="true" uuid="9e1d3885-744e-4434-a886-415af928a4cd">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="username" type="string" size="255" required="true" unique="true" uuid="d2e8c447-e664-46fd-b13a-df41fdec22d7"/>
+      <field name="email" type="string" size="255" required="true" unique="true" uuid="77c72b8a-10ef-49f1-88c6-7f9d9bbca15d"/>
+      <orm-attributes>
+        <attribute name="table">fos_user</attribute>
+        <attribute name="export-file-name">User.php</attribute>
+      </orm-attributes>
+    </entity>
+    <orm-attributes>
+      <attribute name="namespace">Inz\ReportsBundle\Entity</attribute>
+    </orm-attributes>
+  </module>
+  <visual-data>
+    <entity uuid="3400e02e-8ef5-4e93-9f8f-248a976dcfd0" bg-color="4294967295" hdr-color="4292006610" position-x="217" position-y="34" size-x="0" size-x2="115" size-y="0" size-y2="73"/>
+    <entity uuid="3417c02f-6e2b-40aa-869b-6e1dc0e2d987" bg-color="4294967295" hdr-color="4292006610" position-x="442" position-y="411" size-x="0" size-x2="98" size-y="0" size-y2="45"/>
+    <entity uuid="474c8387-0a8e-4c03-9831-21c13dcb8f49" bg-color="4294967295" hdr-color="4292006610" position-x="442" position-y="40" size-x="0" size-x2="98" size-y="0" size-y2="45"/>
+    <association uuid="6e10160e-4cd1-4117-ba61-a1233bdfd605" color="4289243304"/>
+    <entity uuid="775521b2-31ef-412b-99f4-2629c1668904" bg-color="4294967295" hdr-color="4292006610" position-x="52" position-y="380" size-x="0" size-x2="115" size-y="0" size-y2="59"/>
+    <association uuid="97fd6130-f9eb-4865-b3dd-25fe88454a6f" color="4287255714"/>
+    <entity uuid="9e517e8b-efe7-4ded-b2ce-9f33521db4d3" bg-color="4294967295" hdr-color="4292006610" position-x="225" position-y="204" size-x="0" size-x2="98" size-y="0" size-y2="73"/>
+    <association uuid="b18e8c4d-83b3-4046-aad7-cf0eac363653" color="4289928996"/>
+    <association uuid="b7876e3b-3a99-4787-8f46-2300fa2d660e" color="4278236368"/>
+    <entity uuid="bbc0ceaa-239f-4a86-bc72-cc9dd5d82a88" bg-color="4294967295" hdr-color="4292006610" position-x="223" position-y="359" size-x="0" size-x2="102" size-y="0" size-y2="101"/>
+    <project uuid="c0184abf-9c71-45bc-ae6a-a8c8fb83bcb7" size-x="0" size-x2="624" size-y="0" size-y2="495"/>
+    <association uuid="c8b10f9b-a78e-4acb-91e9-717b7cede5ff" color="4281230255"/>
+    <association uuid="cf977160-5c76-4cfa-ae22-3d3288527c0d" color="4291261615"/>
+    <module uuid="f713257f-6482-4ddb-aaf3-b1d446aec639" bg-color="4294897635" position-x="10" position-y="9" size-x="0" size-x2="607" size-y="0" size-y2="480"/>
+    <entity uuid="f90d38e2-a6ce-4bdf-8400-868ad5559a6a" bg-color="4294967295" hdr-color="4292006610" position-x="445" position-y="204" size-x="0" size-x2="92" size-y="0" size-y2="73"/>
+  </visual-data>
+</skipper>

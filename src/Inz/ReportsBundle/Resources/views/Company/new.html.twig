@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>{% trans %}company.create{%endtrans%}</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('company') }}">
+            {% trans %}action.back_to_list{%endtrans%}
+        </a>
+    </li>
+</ul>
+{% endblock %}

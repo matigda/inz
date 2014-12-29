@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Cauldron list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>name</th>
+                <th>cauldronType</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('cauldron_show', { 'id': entity.id, 'company_id' : app.request.get('company_id') }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.cauldronType }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('cauldron_show', { 'id': entity.id, 'company_id' : app.request.get('company_id') }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('cauldron_edit', { 'id': entity.id, 'company_id' : app.request.get('company_id') }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('cauldron_new', { 'company_id' : app.request.get('company_id')}) }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

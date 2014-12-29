@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+        <ul>
+            {% for error in errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+{% block body -%}
+    <h1>{% trans %}fuel.tank{%endtrans%}</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('car', { 'company_id' : app.request.get('company_id')}) }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

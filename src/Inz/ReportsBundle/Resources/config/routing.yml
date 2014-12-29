@@ -1,0 +1,16 @@
+inz_reports_company:
+    resource: "@InzReportsBundle/Resources/config/routing/company.yml"
+    prefix:   /company
+
+inz_reports_car:
+    resource: "@InzReportsBundle/Resources/config/routing/car.yml"
+    prefix:   /company/{company_id}/car
+
+inz_reports_cauldron:
+    resource: "@InzReportsBundle/Resources/config/routing/cauldron.yml"
+    prefix:   /company/{company_id}/cauldron
+
+inz_reports_report:
+    resource: "@InzReportsBundle/Resources/config/routing/report.yml"
+    prefix:   /company/{company_id}/report
+

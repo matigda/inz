@@ -1,0 +1,43 @@
+teza: przydatność takiej aplikacji przy składaniu raportów
+
+1. wstep z przedstawieniem problemu
+    - zużycie energii 
+        - czym jest energia
+        - rodzaje energi
+        - spalanie jako sposób zużycia energii, jako rodzaj energii cieplnej
+    - benzyna
+        - definicja
+        - rodzaje
+        - statystyki zużycia paliwa
+    - emisja pyłków/gazów
+        - definicja
+        - emisja do atmosfery
+        - statystyki emisji pyłków
+        - stosunek emisjji gazów samochodowych do pozostałych
+        - emisja w silnikach nowszych vs emisja w silnikach starszych ( przy takim samym spalaniu )
+            - porównanie spalania w silnikach różnych technologii
+    - sposoby obliczania emisji gazów
+    - zastosowanie aplikacji
+        - target - branże itd
+            - aspekty prawne ( podstawa prawna -http://www.pomorskie.eu/pl/bip/umwp/urzad/sprawy/sprawy_do_zalatwienia/srodowisko )
+2. przeglad istniejacych aplikacji
+    - czym jest aplikacja
+    - sciagnac wersje demo i porównać, czego nie mają, tabelarycznie
+( http://oplatasrodowiskowa.pl/program/instrukcja-obslugi )
+3. użyte technologie, platforma
+    - mysql
+    - php
+    - symfony
+    - wzorzec MVC
+    - ssl ?
+4. projekt własnej aplikacji ( screenshoty )
+    - projekt bazy, 
+    - projekt interfejsów, 
+    - projekt raportowania
+    - target docelowy aplikacji
+5. testy i wdrożenie
+6. podsumowanie
+
+analiza technologi użytej do rozwiązania, stworzenie koncepcji pracy
+
+

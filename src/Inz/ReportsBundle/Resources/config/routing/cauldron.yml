@@ -1,0 +1,24 @@
+cauldron:
+    path:     /
+    defaults: { _controller: "InzReportsBundle:Cauldron:index" }
+
+cauldron_show:
+    path:     /{id}/show
+    defaults: { _controller: "InzReportsBundle:Cauldron:show" }
+
+cauldron_new:
+    path:     /new
+    defaults: { _controller: "InzReportsBundle:Cauldron:new" }
+
+cauldron_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "InzReportsBundle:Cauldron:edit" }
+
+cauldron_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "InzReportsBundle:Cauldron:delete" }
+    requirements: { _method: post|delete }
+
+cauldron_tank:
+    path:     /{id}/tank
+    defaults: { _controller: "InzReportsBundle:Cauldron:tank" }

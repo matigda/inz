@@ -1,0 +1,30 @@
+company:
+    path:     /
+    defaults: { _controller: "InzReportsBundle:Company:index" }
+
+company_new:
+    path:     /new
+    defaults: { _controller: "InzReportsBundle:Company:create" }
+
+company_create:
+    path:     /create
+    defaults: { _controller: "InzReportsBundle:Company:create" }
+    requirements: { _method: post }
+
+company_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "InzReportsBundle:Company:update" }
+
+company_update:
+    path:     /{id}/update
+    defaults: { _controller: "InzReportsBundle:Company:update" }
+    requirements: { _method: post|put }
+
+company_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "InzReportsBundle:Company:delete" }
+    requirements: { _method: post|delete }
+
+company_show:
+    path:     /{id}
+    defaults: { _controller: "InzReportsBundle:Company:show" }

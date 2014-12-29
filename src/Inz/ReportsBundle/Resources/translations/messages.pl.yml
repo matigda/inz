@@ -1,0 +1,43 @@
+company:
+   name: Nazwa firmy
+   adress: Adres
+   vatid: NIP
+   regon: Regon
+   list: Lista firm
+   create: Stwórz nową firmę
+   edit: Edytuj swoją firmę
+   create: Stwórz nową firmę
+   delete: Skasuj firmę
+   plural: Firmy
+   info: Informacje o firmie
+        
+car:
+    engineType: Rodzaj silnika
+    fuelType: Rodzaj paliwa
+    brand: Marka samochodu
+    add: Dodaj nowe auto
+    show_all: Pokaż auta
+    plural: Samochody
+    add_new: Dodaj nowe auto
+
+fuel:
+    volume: Objętość
+    tankingDate: Data tankowania
+    tank: Dodaj paliwo
+    
+security:
+    login:
+        password: Hasło
+        username: Nazwa użytkownika
+        remember_me: Zapamiętaj mnie
+        submit: Zaloguj
+
+action:
+    action: Akcja
+    edit: Edytuj
+    show: Pokaż
+    back_to_list: Wróć do listy
+    tank: Tankuj
+    
+report:
+    generate: Wygeneruj raport

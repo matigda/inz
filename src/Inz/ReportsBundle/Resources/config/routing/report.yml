@@ -1,0 +1,3 @@
+report:
+    path:     /
+    defaults: { _controller: "InzReportsBundle:Report:generate" }

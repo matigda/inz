@@ -1,0 +1,14 @@
+parameters:
+#    inz_reports.example.class: Inz\ReportsBundle\Example
+
+services:
+
+    inz_reports.form.type.car:
+        class: Inz\ReportsBundle\Form\CarType
+        arguments: [ @doctrine.orm.entity_manager ]
+        tags:
+            - { name: form.type, alias: inz_reportsbundle_car }
+
+    reporter_service:
+        class: Inz\ReportsBundle\Service\ReporterService
+        arguments: [ @doctrine.orm.entity_manager ]

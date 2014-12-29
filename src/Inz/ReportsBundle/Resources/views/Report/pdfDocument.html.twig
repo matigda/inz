@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+
+{% block body -%}
+
+<table class="table table-bordered">
+    <th>Rodzaj silnika</th>
+    <th>Rodzaj paliwa</th>
+    <th>Zużycie paliwa [Mg]</th>
+    <th>Jednostkowa stawka opłaty [zł/Mg]</th>
+    <th>Wysokość opłaty [zł]</th>
+
+    {% for key, array in result['carReport'] %}
+
+    <tr>
+        <td rowspan="{{ array|length }}">{{  key }}</td>
+        {% for data in array %}
+            <td >{{  data.fuelType }}</td>
+            <td >{{  data.massSum/1000 }}</td>
+            <td >{{  data.unitCost }}</td>
+            <td >{{  data.totalCost|number_format(2, '.', ',') }}</td>
+        </tr>
+        {% endfor %}
+    </tr>
+
+
+    {% endfor %}
+
+</table>
+{% endblock %}
