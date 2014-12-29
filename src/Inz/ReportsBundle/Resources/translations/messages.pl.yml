@@ -39,6 +39,7 @@ action:
     back_to_list: Wróć do listy
     tank: Tankuj
     logout: Wyloguj
+    chooseYear: Wybierz rok
     
 report:
     generate: Wygeneruj raport

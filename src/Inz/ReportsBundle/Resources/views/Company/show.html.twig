@@ -20,7 +20,7 @@
                 <td>
                     
                     <li class="btn btn-default" style="width:130px;">
-                        <a href="{{ path('car_new', { 'company_id': entity.id }) }}">{% trans %}report.generate{%endtrans%}</a>
+                        <a href="{{ path('report', { 'company_id': entity.id }) }}">{% trans %}report.generate{%endtrans%}</a>
                     </li> <br />
                     <li class="btn btn-default" style="width:130px;"><a href="{{ path('company_edit', { 'id': entity.id }) }}">{% trans %}action.edit{%endtrans%}</a></li>
                     {{ form(delete_form) }}

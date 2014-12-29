@@ -2,12 +2,13 @@
 
 {% block body -%}
 
-    <h1>{% trans %}raport.generate{%endtrans%}</h1>
+    <h1>{% trans %}report.generate{%endtrans%}</h1>
 
     <form {{ form_enctype(form) }} method="POST" class="form-actions">
+        <h2>{% trans %}action.chooseYear{% endtrans %}</h2>
         {{ form_widget(form) }}
         <div class="form-row">
-            <input type="submit" value="{{ 'raport.generate'|trans }}" class="btn btn-primary"/>
+            <input type="submit" value="{{ 'report.generate'|trans }}" class="btn btn-primary"/>
         </div>
     </form>
 

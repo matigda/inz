@@ -38,6 +38,7 @@ action:
     back_to_list: Back to the list
     tank: Tank
     logout: Logout
+    chooseYear: Choose year
     
 report:
     generate: Generate report
