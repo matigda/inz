@@ -26,6 +26,12 @@
 # Assets and user uploads
 /web/bundles/
 /web/uploads/
+/public_html/bundles/
+/public_html/uploads/
+/private_html/
+/logs/
+/awstats/
+.httpaswd/
 
 # PHPUnit
 /app/phpunit.xml
