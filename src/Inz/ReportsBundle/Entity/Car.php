@@ -50,7 +50,7 @@ class Car
      * @param \Inz\ReportsBundle\Entity\Fuel $fuel
      * @return Car
      */
-    public function addFuel(\Inz\ReportsBundle\Entity\Fuel $fuel)
+    public function addFuel(\Inz\ReportsBundle\Entity\FuelTank $fuel)
     {
         $this->fuel[] = $fuel;
 
@@ -62,7 +62,7 @@ class Car
      *
      * @param \Inz\ReportsBundle\Entity\Fuel $fuel
      */
-    public function removeFuel(\Inz\ReportsBundle\Entity\Fuel $fuel)
+    public function removeFuel(\Inz\ReportsBundle\Entity\FuelTank $fuel)
     {
         $this->fuel->removeElement($fuel);
     }
