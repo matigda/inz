@@ -50,4 +50,5 @@ cauldron:
     new: Create new cauldron
     type: Type
     unitCost: Unit cost
+    name: Name
     

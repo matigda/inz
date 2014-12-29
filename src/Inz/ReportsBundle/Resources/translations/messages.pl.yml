@@ -51,3 +51,4 @@ cauldron:
     new: Stwórz nowy kocioł
     type: Typ
     unitCost: Koszt jednostkowy
+    name: Nazwa

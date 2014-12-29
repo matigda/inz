@@ -53,8 +53,8 @@ class CompanyRepository extends EntityRepository
         return $qb->select('
                 cauldronType.unitCost, cauldronType.type, COUNT(cauldrons.id) as cauldronsAmount,
                  SUM(case
-                        WHEN fuel.unit = :kg AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN fuel.volume
-                        WHEN fuel.unit = :l AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN (fuel.volume * cauldronType.fuelDensity / 1000)
+                        WHEN fuel.unit = :kg AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN fuel.volume / 1000
+                        WHEN fuel.unit = :l AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN (fuel.volume * cauldronType.fuelDensity / 1000000 )
                         ELSE 0
                         END
                 ) as massSum

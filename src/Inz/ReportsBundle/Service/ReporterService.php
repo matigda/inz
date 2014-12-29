@@ -20,8 +20,8 @@ class ReporterService
 
         $getTotalSum = function($reportSum) {
             for($i=0; $i<count($reportSum); $i++) {
-                // unit cost to koszt na tone, a massSum to masa w kilogramach - dlatego dzielimy jeszcze przez 1000
-                $reportSum[$i]['totalCost'] = ( $reportSum[$i]['unitCost'] * $reportSum[$i]['massSum'] ) / 1000;
+
+                $reportSum[$i]['totalCost'] =  $reportSum[$i]['unitCost'] * $reportSum[$i]['massSum'] ;
             }
             return $reportSum;
         };

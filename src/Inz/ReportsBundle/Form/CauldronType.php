@@ -11,8 +11,13 @@ class CauldronType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('cauldronType')
+            ->add('name', null, array(
+                'label' => 'cauldron.name'
+            ))
+            ->add('cauldronType','entity', array(
+                'label' => 'cauldron.type',
+                'class' => 'Inz\ReportsBundle\Entity\CauldronType'
+            ))
         ;
     }
     
