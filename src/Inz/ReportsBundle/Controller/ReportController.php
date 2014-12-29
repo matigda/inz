@@ -27,7 +27,7 @@ class ReportController extends Controller
 
             $html = $this->renderView('InzReportsBundle:Report:pdfDocument.html.twig', compact('result'));
 
-            return $this->render('InzReportsBundle:Report:pdfDocument.html.twig', compact('result'));
+//            return $this->render('InzReportsBundle:Report:pdfDocument.html.twig', compact('result'));
             return new Response(
                 $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
                 200,
