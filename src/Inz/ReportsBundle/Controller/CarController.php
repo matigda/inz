@@ -159,7 +159,7 @@ class CarController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('car'));
+        return $this->redirect($this->generateUrl('company_show', array('id' => $request->get('company_id'))));
     }
     
     public function ajaxGetEngineTypeAction($fuelTypeId)

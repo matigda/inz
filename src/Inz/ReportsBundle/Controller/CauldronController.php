@@ -160,7 +160,7 @@ class CauldronController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('cauldron', array('company_id' => $request->get('company_id'))));
+        return $this->redirect($this->generateUrl('company_show', array('id' => $request->get('company_id'))));
     }
 
     /**
