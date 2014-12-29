@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CauldronTank
  *
- * @ORM\Table()
+ * @ORM\Table(name="cauldron_tank")
  * @ORM\Entity
  */
 class CauldronTank

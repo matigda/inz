@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * UnitCost
  *
- * @ORM\Table()
+ * @ORM\Table(name="unit_cost")
  * @ORM\Entity(repositoryClass="Inz\ReportsBundle\Repository\UnitCostRepository")
  */
 class UnitCost
@@ -45,9 +45,17 @@ class UnitCost
     private $cars;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cars = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -70,7 +78,7 @@ class UnitCost
     /**
      * Get cost
      *
-     * @return string 
+     * @return string
      */
     public function getCost()
     {
@@ -93,7 +101,7 @@ class UnitCost
     /**
      * Get engineType
      *
-     * @return \Inz\ReportsBundle\Entity\EngineType 
+     * @return \Inz\ReportsBundle\Entity\EngineType
      */
     public function getEngineType()
     {
@@ -116,19 +124,11 @@ class UnitCost
     /**
      * Get fuelType
      *
-     * @return \Inz\ReportsBundle\Entity\FuelType 
+     * @return \Inz\ReportsBundle\Entity\FuelType
      */
     public function getFuelType()
     {
         return $this->fuelType;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->cars = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

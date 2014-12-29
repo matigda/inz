@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EngineType
  *
- * @ORM\Table()
+ * @ORM\Table(name="engine_type")
  * @ORM\Entity(repositoryClass="Inz\ReportsBundle\Repository\EngineTypeRepository")
  */
 class EngineType

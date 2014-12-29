@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Fuel
  *
- * @ORM\Table()
+ * @ORM\Table(name="fuel_tank")
  * @ORM\Entity
  */
 class FuelTank
