@@ -54,7 +54,7 @@ class CompanyRepository extends EntityRepository
                 cauldronType.unitCost, cauldronType.type, COUNT(cauldrons.id) as cauldronsAmount,
                  SUM(case
                         WHEN fuel.unit = :kg AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN fuel.volume
-                        WHEN fuel.unit = :l AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN (fuel.volume * cauldronType.fuelDensity)
+                        WHEN fuel.unit = :l AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN (fuel.volume * cauldronType.fuelDensity / 1000)
                         ELSE 0
                         END
                 ) as massSum

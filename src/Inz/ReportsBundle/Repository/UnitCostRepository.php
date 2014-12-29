@@ -15,7 +15,7 @@ class UnitCostRepository extends EntityRepository
                 uc.cost as unitCost, ft.name as fuelType, et.name as engineType,
                 SUM(case
                         WHEN fuel.unit = :kg AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN fuel.volume
-                        WHEN fuel.unit = :l AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN (fuel.volume * ft.density)
+                        WHEN fuel.unit = :l AND YEAR(fuel.tankingDate) = :year AND company.id = :cid THEN (fuel.volume * ft.density / 1000)
                         ELSE 0
                         END
                 ) as massSum
