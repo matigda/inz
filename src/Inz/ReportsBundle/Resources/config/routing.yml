@@ -14,3 +14,7 @@ inz_reports_report:
     resource: "@InzReportsBundle/Resources/config/routing/report.yml"
     prefix:   /company/{company_id}/report
 
+inz_redirect:
+    path: /
+    defaults: { _controller: InzReportsBundle:Default:redirect }
+

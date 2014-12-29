@@ -31,6 +31,7 @@ class CompanyController extends Controller
             'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new Company entity.
      *
