@@ -34,6 +34,7 @@
                 <div class="text-right">
                     <p class="text-warning">Choose language:</p>
                     <select id="language-switcher">
+                        <option selected disabled>Choose one</option>
                         <option value="{{ path('switch_language',{'lang' : 'pl'}) }}" {% if app.request.locale == 'pl_PL' %}selected="selected"{% endif%}>Polski</option>
                         <option value="{{ path('switch_language',{'lang' : 'en'}) }}" {% if app.request.locale == 'en_US' %}selected="selected"{% endif %}>English</option>
                     </select>
